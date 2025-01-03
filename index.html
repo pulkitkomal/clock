@@ -18,38 +18,38 @@
             transition: background 0.3s ease, color 0.3s ease;
         }
 
-	.clock-container {
-	    text-align: center;
-	    display: flex;
-	    flex-direction: column;
-	    justify-content: center;
-	    align-items: center;
-	    width: 80%;
-	    height: 80%;
-	    padding: 20px;
-	    border-radius: 15px;
-	    background: #111;
-	    box-shadow: 0 0px 0px rgba(255, 255, 255, 0.2);
-	    transition: transform 0.3s ease;
-	}
-	
-	.sideways {
-	    transform: rotate(90deg);
-	    transform-origin: center center;
-	}
+        .clock-container {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            height: 80%;
+            padding: 20px;
+            border-radius: 15px;
+            background: #111;
+            box-shadow: 0 0px 0px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .sideways {
+            transform: rotate(90deg);
+            transform-origin: center center;
+        }
 
         .time {
-            font-size: 13vw; /* Increased size for larger clock */
+            font-size: 12vw;
             margin: 0;
         }
 
         .date {
-            font-size: 6vw; /* Larger date size */
+            font-size: 6vw;
             margin: 0;
         }
 
         .day {
-            font-size: 7vw; /* Larger day size */
+            font-size: 4vw;
             margin: 0;
         }
 
@@ -74,18 +74,17 @@
             background: #ccc;
         }
 
-        /* Media query for smaller screens (mobile devices) */
         @media (max-width: 600px) {
             .time {
-                font-size: 20vw; /* Larger clock size on smaller screens */
+                font-size: 20vw;
             }
 
             .date {
-                font-size: 8vw; /* Adjust date size */
+                font-size: 8vw;
             }
 
             .day {
-                font-size: 9vw; /* Adjust day size */
+                font-size: 9vw;
             }
         }
     </style>
@@ -113,7 +112,6 @@
 
             const hours = now.getHours().toString().padStart(2, '0');
             const minutes = now.getMinutes().toString().padStart(2, '0');
-            const seconds = now.getSeconds().toString().padStart(2, '0');
 
             const date = now.toLocaleDateString('en-IN', {
                 day: 'numeric',
@@ -123,7 +121,7 @@
 
             const day = now.toLocaleDateString('en-IN', { weekday: 'long' });
 
-            timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+            timeElement.textContent = `${hours}:${minutes}`;
             dateElement.textContent = date;
             dayElement.textContent = day;
         }
@@ -152,7 +150,7 @@
         }
 
         setInterval(updateClock, 1000);
-        updateClock(); // Initial call to display clock immediately
+        updateClock();
     </script>
 </body>
 </html>
