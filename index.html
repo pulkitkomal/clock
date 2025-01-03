@@ -27,29 +27,29 @@
 	    width: 80%;
 	    height: 80%;
 	    padding: 20px;
-	    /* border: 3px solid #fff; */  /* Removed the border */
 	    border-radius: 15px;
 	    background: #111;
-	    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+	    box-shadow: 0 0px 0px rgba(255, 255, 255, 0.2);
 	    transition: transform 0.3s ease;
 	}
-
-        .clock-container.sideways {
-            transform: rotate(90deg);
-        }
+	
+	.sideways {
+	    transform: rotate(90deg);
+	    transform-origin: center center;
+	}
 
         .time {
-            font-size: 10vw;
+            font-size: 13vw; /* Increased size for larger clock */
             margin: 0;
         }
 
         .date {
-            font-size: 4vw;
+            font-size: 6vw; /* Larger date size */
             margin: 0;
         }
 
         .day {
-            font-size: 5vw;
+            font-size: 7vw; /* Larger day size */
             margin: 0;
         }
 
@@ -72,6 +72,21 @@
 
         button:hover {
             background: #ccc;
+        }
+
+        /* Media query for smaller screens (mobile devices) */
+        @media (max-width: 600px) {
+            .time {
+                font-size: 20vw; /* Larger clock size on smaller screens */
+            }
+
+            .date {
+                font-size: 8vw; /* Adjust date size */
+            }
+
+            .day {
+                font-size: 9vw; /* Adjust day size */
+            }
         }
     </style>
 </head>
